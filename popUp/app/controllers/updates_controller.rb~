@@ -1,0 +1,47 @@
+class UpdatesController < ApplicationController
+    def index
+        @update = 1
+    end
+    
+    def create
+        ActiveRecord::Base.establish_connection(:adapter => "mysql",:host => "localhost",:username => "root",:password => "root", :database => "popup_classes")           
+        if params[:commit]["Upload"]
+            updates = params[:uins]["Uins"].split(/\n/)
+ 
+            #File.open("#{updates}", 'r').each_line do |l|
+            updates.each do |l|
+                line = l.split(",")
+                uin = line[0]
+                firstname = line[1]
+                lastname = line[2]
+                email = line[3]
+                classcode = line[4]
+                classname = line[5]
+                attendance = line[6]
+                
+                @query = "INSERT into Student_Info VALUES (#{uin},'#{firstname}','#{lastname}','#{email}') ON DUPLICATE KEY UPDATE First_name='#{firstname}', Last_name='#{lastname}', Email='#{email}';"
+                @result = ActiveRecord::Base.connection.execute(@query) 
+                @query = "INSERT into Class_Enrollment VALUES (#{uin}, '#{classcode}', '#{classname}', '#{attendance}') ON DUPLICATE KEY UPDATE Attendance = '#{attendance}';"
+                @result = ActiveRecord::Base.connection.execute(@query) 
+            end
+            
+        else
+            name = params[:name]["Name"]
+            code = params[:code]["Code"]
+            description = params[:desc]["Description"]
+            prereq = params[:prereq]["Prerequisites"]
+            category = params[:category]["Category"]		
+            
+            @query = "INSERT INTO Class VALUES ('#{code}','#{name}','#{description}','#{prereq}','#{category}');"
+            @result = ActiveRecord::Base.connection.execute(@query)    
+		
+        end
+    
+        flash[:upload] = true
+    
+        redirect_to updates_path
+    
+    end
+    
+    
+end

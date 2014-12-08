@@ -1,0 +1,328 @@
+@import url("font-awesome.min.css");
+@import url("http://fonts.googleapis.com/css?family=Raleway:100,200,300,500,600,700,800,900");
+
+body {
+	background: #0f1116;
+	margin: auto;
+	color: #555555;
+	font-family: 'Raleway', sans-serif;
+	font-size: 12pt;
+	font-weight: 300;
+	line-height: 1.65em;
+}
+
+span, input, select, textarea {
+	color: #555555;
+	font-family: 'Raleway', sans-serif;
+	font-size: 12pt;
+	font-weight: 300;
+	line-height: 1.65em;
+}
+
+a {
+	color: #d84780;
+	text-decoration: underline;
+}
+
+strong, b {
+	font-weight: 700;
+}
+
+em, i {
+	font-style: italic;
+}
+
+p, ul, ol, dl, table, blockquote {
+	margin: 0 0 2em 0;
+}
+
+p {
+	line-height: 2em;
+}
+
+h1{
+	text-align: center;
+	line-height: 2em;
+	color: white;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 700;
+	background: maroon;
+	-webkit-animation: title 2s; /* Chrome, Safari, Opera */
+    	animation: title 2s;
+}
+iframe{
+       display: block;
+       margin: 0 auto;
+
+}
+
+.tabs {
+	display: block;
+	line-height: 22px;
+	padding: 5px 10px 3px 0;
+}
+.tabs ul {
+	text-align: left;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.tabs ul li{
+	padding: 0;
+	margin: 0;
+	display: inline-block;
+}
+.tabs ul li a {
+	font-family:Tahoma, Geneva, sans-serif;	
+	display: block;
+	cursor: pointer;
+	text-decoration: none;
+	padding: 5px 25px;
+	margin: 5px 2px 0 2px;
+	color: #000;
+	font-size: 14px;
+	background: #DDD;
+	border:#999 1px solid;
+	border-radius: 8px;
+	border-radius: 8px;
+	-moz-border-radius: 8px;
+	-moz-border-radius: 8px;
+}
+.tabs ul li a.link-catch-all {
+	background:#ddd;
+}
+.tabs ul li a.fancytab_on {
+	color:#fff;
+	background:#333;
+}
+.tabs ul li a:hover {	
+	color: #FFF;
+	background: #333;
+}
+
+.tabs-content, .content {
+    	width:100%;
+    	height:100%;
+    	line-height: 40px;
+    	display:inline-block;
+    	background-color: #800000;
+    	border: groove;
+    	border-color: #808080;
+    	border-width: 5px;
+    	border-collapse: collapse;
+	background-image: url(http://brandguide.tamu.edu/electronic-templates/social-media/TwitterLayout-Maroon.jpg);
+}
+
+    /*----- Tab Links -----*/
+    /* Clearfix */
+.tab-links:after {
+        display:block;
+        clear:both;
+        content:'';
+}
+    
+.tab-links {
+        margin-bottom: 0px;
+}
+ 
+.tab-links li {
+        margin:0px 0px;
+        float:left;
+        list-style:none;
+        
+}
+ 
+.tab-links a {
+        padding:15px 75px;
+        display:inline-block;
+        border-radius:30px 3px 0px 0px;
+        border: solid;
+        border-color: #000000;
+        border-width: 1px;
+        background:#7FB5DA;
+        font-size:16px;
+        font-weight:600;
+        color:#4c4c4c;
+        transition:all linear 0.15s;
+}
+
+.tab-links a:hover {
+        background:#a7cce5;
+        text-decoration:none;
+}
+ 
+li.active a, li.active a:hover {
+       background:#d3d3d3;
+       color:#4c4c4c;
+}
+ 
+   /*----- Content of Tabs -----*/
+.tab-content {
+       padding:15px;
+       border-radius:3px;
+       box-shadow:-1px 1px 1px rgba(0,0,0,0.15);
+       background:#fff;
+}
+ 
+.tab {
+      display:none;
+}
+ 
+.tab.active {
+      display:block;
+}
+
+.center {
+        margin-left: 20px;
+    }
+    
+input.query {
+    
+    margin-left: 20px;
+    width: 70%;
+
+}
+
+.report1:hover { 
+	color: #FFF;
+	background: #333; 
+}
+.report2:hover { 
+	color: #FFF;
+	background: #333; 
+}
+.report3:hover { 
+	color: #FFF;
+	background: #333; 
+}
+.report4:hover { 
+	color: #FFF;
+	background: #333; 
+}
+.report5:hover { 
+	color: #FFF;
+	background: #333; 
+}
+.report6:hover { 
+	color: #FFF;
+	background: #333; 
+}
+.report7:hover { 
+	color: #FFF;
+	background: #333; 
+}
+
+.report:hover { 
+	color: #FFF;
+	background: #333; 
+}
+
+
+
+.report1,.report2,.report3,.report4,.report5,.report6,.report7 {
+	font-family:Tahoma, Geneva, sans-serif;	
+	display: block;
+	text-decoration: none;
+	padding: 5px 5px;
+	margin: 5px 650px 0 2px;
+	color: #000;
+	font-size: 14px;
+	background: #DDD;
+	border:#999 1px solid;
+	border-radius: 8px;
+	border-radius: 8px;
+	-moz-border-radius: 8px;
+	-moz-border-radius: 8px;
+	background-image: url(http://brandguide.tamu.edu/electronic-templates/social-media/TwitterLayout-Maroon.jpg);
+}
+
+
+
+#download,.button{
+	background: maroon;
+	border-radius: 80px;
+	border: 0;
+	color: white;
+	cursor: pointer;
+	display: inline-block;
+	padding: 0.25em 1em;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	display: inline-block;
+	font-size: 0.85em;
+	font-weight: 800;
+	color: #FFF !important;
+    	-webkit-animation: myfirst 2s; /* Chrome, Safari, Opera */
+    	animation: myfirst 2s;
+
+}
+
+#tablebody{
+	background: maroon;
+	border-radius: 10px;
+	border: 0;
+	color: white;
+	display: inline-block;
+	padding: 0.25em 1em;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	display: inline-block;
+	font-size: 0.85em;
+	font-weight: 800;
+	color: #FFF !important;
+    	-webkit-animation: myfirst 2s; /* Chrome, Safari, Opera */
+    	animation: myfirst 2s;
+
+}
+
+#tableheader{
+	background: black;
+        font-size: 0.70em;
+}
+
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes myfirst {
+    from {background: white;}
+    to {background: maroon;}
+}
+
+/* Standard syntax */
+@keyframes myfirst {
+    from {background: white;}
+    to {background: maroon;}
+}
+
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes title {
+    from {background: white;}
+    to {background: maroon;}
+}
+
+/* Standard syntax */
+@keyframes title {
+    from {background: white;}
+    to {background: maroon;}
+}
+
+
+.report {
+	font-family:Tahoma, Geneva, sans-serif;	
+	color: white;
+	font-size: 18px;
+}
+
+
+/* Date picker */
+
+#txtDate
+{
+	background-image: url(http://i988.photobucket.com/albums/af3/mudassarkhan/calender.png);
+        background-repeat: no-repeat;
+        padding-left: 25px;
+}
+
+

@@ -1,0 +1,62 @@
+%head
+    = stylesheet_link_tag "index"
+    = javascript_include_tag "setupIndex"   
+    
+    .tabs
+        %ul.tab-links
+            %li.active
+                = link_to "Generate Reports", reports_path
+            %li
+                = link_to "Upload Report", updates_path 
+
+%body
+ 
+    .tabs-content
+        .tab.active#tab2
+            .center
+                .report1
+
+                    %label.report Database Content
+                    = form_tag report_path(1), :method => :get do
+                        = text_field :start, 'Start', :placeholder => "Start Date(YYYY-MM-DD)",:class => 'datestyle'
+                        = text_field :end,  'End', :placeholder => "End Date(YYYY-MM-DD)",:class => 'datestyle'
+                        = submit_tag "Get Report",:class => 'button'
+                .report2
+                    %label.report Number of classes attended by students
+                    = form_tag report_path(2), :method => :get do
+                        = text_field :start, 'Start', :placeholder => "Start Date(YYYY-MM-DD)",:class => 'datestyle'
+                        = text_field :end,  'End', :placeholder => "End Date(YYYY-MM-DD)",:class => 'datestyle'
+                        = text_field :min, 'Min', :placeholder => "Minimum Classes",:class => 'datestyle'
+                        = submit_tag "Get Report",:class => 'button'
+                .report3
+                    %label.report Number of classes missed by students
+                    = form_tag report_path(3), :method => :get do
+                        = text_field :start, 'Start', :placeholder => "Start Date(YYYY-MM-DD)",:class => 'datestyle'
+                        = text_field :end,  'End', :placeholder => "End Date(YYYY-MM-DD)",:class => 'datestyle'
+                        = text_field :min, 'Min', :placeholder => "Minimum Classes Not Attended",:class => 'datestyle'
+                        = submit_tag "Get Report",:class => 'button'
+                .report4
+                    %label.report Classes attended by students
+                    = form_tag report_path(4), :method => :get do
+                        = text_field :uins, 'UINs', :placeholder => "List Of UINs (Comma Seperated)",:class => 'datestyle'
+                        = submit_tag "Get Report",:class => 'button'
+                .report5
+                    %label.report Average attendance of a class
+                    = form_tag report_path(5), :method => :get do
+                        = text_field :start, 'Start', :placeholder => "Start Date(YYYY-MM-DD)",:class => 'datestyle'
+                        = text_field :end,  'End', :placeholder => "End Date(YYYY-MM-DD)",:class => 'datestyle'
+                        = text_field :class,  'Class', :placeholder => "Class Code",:class => 'datestyle'
+                        = submit_tag "Get Report",:class => 'button'
+                .report6
+                    %label.report Attendance of classes
+                    = form_tag report_path(6), :method => :get do
+                        = text_field :start, 'Start', :placeholder => "Start Date(YYYY-MM-DD)",:class => 'datestyle'
+                        = text_field :end,  'End', :placeholder => "End Date(YYYY-MM-DD)",:class => 'datestyle'
+                        = text_field :classes,  'Classes', :placeholder => "Class Codes (Comma Seperated)",:class => 'datestyle'
+                        = submit_tag "Get Report",:class => 'button'
+                .report7
+                    %label.report Custom Query
+                    = form_tag report_path(7), :method => :get do
+                        = text_field :custom, 'Custom', :placeholder => "Custom SQL Query", :width => 250,:class => 'datestyle'
+                        = submit_tag "Get Report",:class => 'button'
+

@@ -1,0 +1,20 @@
+%head
+    = stylesheet_link_tag "index"
+    
+    .tabs
+        %ul.tab-links
+            %li.active
+                = link_to "View Class Schedule", calendars_path
+            %li
+                = link_to "Generate Reports", reports_path
+            %li 
+                %a View Students
+
+%body
+ 
+    .tabs-content
+        .tab.active#tab1
+            
+            %iframe{:allowscriptaccess => "always", :allowFullScreen => "true", :frameborder => "0", :height => "600", :src => "https://www.google.com/calendar/embed?src=popuptamu%40gmail.com&ctz=America/Chicago", :title => "Calendar of Classes", :width => "800", :scrolling => "no"}
+            
+            

@@ -1,0 +1,31 @@
+%head
+    = stylesheet_link_tag "index"
+    = javascript_include_tag "application"
+
+    .tabs
+        %ul.tab-links
+            %li.active
+                = link_to "Generate Reports", reports_path
+            %li
+                = link_to "Upload Report", updates_path
+
+%body
+ 
+    .tabs-content
+        .tab.active#tab2
+            .reports
+            %button.download#download Download CSV File            
+            %table.id#tablebody
+                %tbody
+                    - if @result.any?
+                        - @result.fetch_fields.each_with_index do |info, i|
+                            %td.id#tableheader= info.name
+                        - @result.each do |row|
+                            %tr
+                            - row.each do |column|
+                                %td.id#tableheader= column
+
+
+
+
+

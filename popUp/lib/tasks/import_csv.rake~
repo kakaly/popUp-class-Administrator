@@ -1,0 +1,8 @@
+  desc "Import file" 
+  task :import_file => :environment do
+    File.open("users.txt", "r").each do |line|
+      name, age, profession = line.strip.split("\t")
+      u = User.new(:name => name, :age => age, :profession => profession)
+      u.save
+    end
+  end

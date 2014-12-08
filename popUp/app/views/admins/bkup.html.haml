@@ -1,0 +1,10 @@
+  %body  
+    - if session[:loggedIn]
+      .flash Login Successful!
+        
+    = form_tag admins_path, :method => :post do
+        
+      = text_field :username, 'Username', :placeholder => "Username"
+      = text_field :password,  'Password', :type => "password", :placeholder => "Password"
+        
+      = submit_tag 'Log In'

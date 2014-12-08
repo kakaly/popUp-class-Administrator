@@ -1,0 +1,30 @@
+%head
+    = stylesheet_link_tag "index"
+    .tabs
+        %ul.tab-links
+            %li.active
+                = link_to "Generate Reports", reports_path
+            %li
+                = link_to "Upload Report", updates_path
+%body
+
+    .tabs-content
+        .tab.active#tab2
+            .center
+                .report1
+                    - if flash[:newContact]
+                        .update
+                            Update Successful!
+                    - if flash[:failedContact]
+                        .failed
+                            Update Failed!
+        
+                    = form_tag contacts_path, :method => :post do
+                        = text_field :newEmail, 'NewEmail', :placeholder => "Emails separated by commas",:class => 'datestyle'
+        
+                        = submit_tag 'Confirm', :class => 'button'
+    
+    
+                    .back
+    
+    

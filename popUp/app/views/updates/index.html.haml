@@ -1,0 +1,45 @@
+%head
+    = stylesheet_link_tag "index"
+
+    .tabs
+        %ul.tab-links
+            %li.active
+                = link_to "Generate Reports", reports_path
+            %li
+                = link_to "Upload Report", updates_path
+%body
+
+    .tabs-content
+        .tab.active#tab2
+            .center
+                .report1
+                    %label.report Update Administrator Email
+                    - if flash[:newContact]
+                        .success
+                            Email Change Successful!
+                    - if flash[:upload]
+                        .finish
+                            Upload Successful!
+
+                    .change
+                        = button_to "Change Admin Email", contacts_path, :method => :get, :class => 'button'
+        
+        
+
+                .report2
+                    %label.report Add a New Class
+                    = form_tag updates_path, :method => :post do
+                        = text_field :name, 'Name', :placeholder => "Class Name",:class => 'datestyle'
+                        = text_field :code, 'Code', :placeholder => "Class Code",:class => 'datestyle'
+                        = text_field :desc, 'Description', :placeholder => "Class Description",:class => 'datestyle'
+                        = text_field :prereq, 'Prerequisites', :placeholder => "Prerequisites" ,:class => 'datestyle'
+                        = text_field :category, 'Category', :placeholder => "Category",:class => 'datestyle'       
+            
+                        = submit_tag 'Confirm', :class => 'button'
+
+                .report3
+                    %label.report Update UIN
+                    = form_tag updates_path, :method => :post do
+                        = text_area :uins, 'Uins', :placeholder => "Paste In CSV of UIN, First Name, Last Name, Email, Class Code, Class Date, Attendance",:class => 'UINbox'
+                        = submit_tag 'Upload', :class => 'button'
+    
