@@ -1,5 +1,7 @@
 %head
     = stylesheet_link_tag "index"
+    = form_tag report_path(10), :method => :get do
+        = submit_tag "Log Out",:class => 'logoutbutton'
     .tabs
         %ul.tab-links
             %li.active

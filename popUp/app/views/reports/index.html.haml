@@ -1,13 +1,15 @@
 %head
     = stylesheet_link_tag "index"
-    = javascript_include_tag "setupIndex"   
+    = javascript_include_tag "application"
+    = form_tag report_path(10), :method => :get do
+        = submit_tag "Log Out",:class => 'logoutbutton'
     
     .tabs
         %ul.tab-links
             %li.active
                 = link_to "Generate Reports", reports_path
             %li
-                = link_to "Upload Report", updates_path 
+                = link_to "Upload Report", updates_path
 
 %body
  

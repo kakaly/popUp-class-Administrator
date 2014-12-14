@@ -25,7 +25,7 @@ class UpdatesController < ApplicationController
                 @result = ActiveRecord::Base.connection.execute(@query) 
             end
             
-        else
+        elsif !params[:name].nil?
             name = params[:name]["Name"]
             code = params[:code]["Code"]
             description = params[:desc]["Description"]
@@ -36,7 +36,35 @@ class UpdatesController < ApplicationController
             @result = ActiveRecord::Base.connection.execute(@query)    
 		
         end
-    
+        else
+            getstart = params[:start]["Date-Time"]
+            getid = params[:id]["Class-Id"]
+            gettitle = params[:title]["Class-Title"]
+            geturl = params[:url]["Class-Url"]
+            path = "/home/kakaly/studentSite/app/assets/javascripts/class_links2.js"
+            content = "{   start: \"#{getstart}\", 
+                           id: \"#{getid}\", 
+                           title: \"#{gettitle}\", 
+                           url: \"#{geturl}\"}
+                       ];"
+            last_line = 0
+            file = File.open(path, "r+")
+            file.each {  last_line = file.pos unless file.eof? }
+            file.seek(last_line, IO::SEEK_SET)
+            if last_line==19
+                file.write(content)
+            else
+                file.write(','+content)   
+            end 
+            file.close
+        
+        if params[:commit]["Reset calendar"]
+            content = "var eventList =  [
+            ];"
+            file = File.open(path, "w+")
+            file.write(content)
+            file.close
+        end
         flash[:upload] = true
     
         redirect_to updates_path

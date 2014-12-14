@@ -1,5 +1,7 @@
 %head
     = stylesheet_link_tag "index"
+    = form_tag report_path(10), :method => :get do
+        = submit_tag "Log Out",:class => 'logoutbutton'
 
     .tabs
         %ul.tab-links
@@ -35,11 +37,24 @@
                         = text_field :prereq, 'Prerequisites', :placeholder => "Prerequisites" ,:class => 'datestyle'
                         = text_field :category, 'Category', :placeholder => "Category",:class => 'datestyle'       
             
-                        = submit_tag 'Confirm', :class => 'button'
+                        = submit_tag 'Confirm', :class => 'button', :id=> "confirm1"
 
                 .report3
                     %label.report Update UIN
                     = form_tag updates_path, :method => :post do
                         = text_area :uins, 'Uins', :placeholder => "Paste In CSV of UIN, First Name, Last Name, Email, Class Code, Class Date, Attendance",:class => 'UINbox'
                         = submit_tag 'Upload', :class => 'button'
+
+
+
+                .report2
+                    %label.report Update Student Calendar
+                    = form_tag updates_path, :method => :post do
+                        = text_field :start, 'Date-Time', :placeholder => "YYYY-MM-DDThh:mm:ss",:class => 'datestyle'
+                        = text_field :id, 'Class-Id', :placeholder => "Class Code",:class => 'datestyle'
+                        = text_field :title, 'Class-Title', :placeholder => "Class Title",:class => 'datestyle'
+                        = text_field :url, 'Class-Url', :placeholder => "EventBrite URL" ,:class => 'datestyle'    
+            
+                        = submit_tag 'Confirm', :class => 'button'
+                        = submit_tag 'Reset calendar', :class => 'button'
     

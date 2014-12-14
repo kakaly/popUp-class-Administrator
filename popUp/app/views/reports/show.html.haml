@@ -1,6 +1,8 @@
 %head
     = stylesheet_link_tag "index"
     = javascript_include_tag "application"
+    = form_tag report_path(10), :method => :get do
+        = submit_tag "Log Out",:class => 'logoutbutton'
 
     .tabs
         %ul.tab-links
@@ -17,7 +19,7 @@
             %button.download#download Download CSV File            
             %table.id#tablebody
                 %tbody
-                    - if @result.any?
+                    - if @result.blank? == false
                         - @result.fetch_fields.each_with_index do |info, i|
                             %td.id#tableheader= info.name
                         - @result.each do |row|

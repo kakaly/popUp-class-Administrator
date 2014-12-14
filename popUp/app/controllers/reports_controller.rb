@@ -31,6 +31,8 @@ class ReportsController < ApplicationController
             showSix
         when '7'
             showCustom
+        when '10'
+            logOut
         else
             @query = ""
         end
@@ -153,6 +155,13 @@ class ReportsController < ApplicationController
         @query = params[:custom]["Custom"]
         #logger.debug "\n\nThis is a debug\n\n\n\nHere is the query\n\n"
         #logger.debug @query
+        
+    end
+
+    def logOut
+	#@query.gsub! '-', ' '
+        session[:loggedIn] = false
+        redirect_to admins_path
         
     end
     
